@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html>
+<head>
+<title>Blackbox API Test</title>
+</head>
+<body>
+
+<h2>Blackbox API Test</h2>
+
+<input type="text" id="msg" placeholder="Type message">
+<button onclick="send()">Send</button>
+
+<pre id="output"></pre>
+
+<script>
+function send(){
+    const message = document.getElementById("msg").value;
+
+    fetch("http://127.0.0.1:5000/test", {
+        method: "POST",
+        headers: {
+            "Content-Type": "application/json"
+        },
+        body: JSON.stringify({ message: message })
+    })
+    .then(res => res.json())
+    .then(data => {
+        document.getElementById("output").innerText =
+            JSON.stringify(data, null, 2);
+    })
+    .catch(err => {
+        document.getElementById("output").innerText = err;
+    });
+}
+</script>
+
+</body>
+</html>
