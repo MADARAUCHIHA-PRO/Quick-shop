@@ -1,38 +1,412 @@
 <!DOCTYPE html>
-<html>
+<html lang="en">
 <head>
-<title>Blackbox API Test</title>
+
+  <!-- BASIC -->
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover" />
+
+  <!-- TITLE -->
+  <title>Quick Shop - Premium Modern Online Store</title>
+
+  <!-- SEO -->
+  <meta
+    name="description"
+    content="Quick Shop is a premium modern online showcase store with stylish products, amazing deals, smooth UI, and premium shopping experience."
+  />
+
+  <meta
+    name="keywords"
+    content="quick shop, premium store, online shop, ecommerce, modern shop, ayan quick shop"
+  />
+
+  <meta name="author" content="AYAN" />
+  <meta name="robots" content="index, follow, max-image-preview:large, max-snippet:-1, max-video-preview:-1" />
+  <meta name="googlebot" content="index, follow" />
+  <meta name="theme-color" content="#7c3aed" />
+  <meta name="color-scheme" content="dark light" />
+
+  <!-- CANONICAL -->
+  <link rel="canonical" href="https://quickshop-online.vercel.app" />
+
+  <!-- PERFORMANCE -->
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link rel="preconnect" href="https://cdnjs.cloudflare.com" />
+  <link rel="dns-prefetch" href="//fonts.googleapis.com" />
+  <link rel="dns-prefetch" href="//fonts.gstatic.com" />
+  <link rel="dns-prefetch" href="//cdnjs.cloudflare.com" />
+
+  <!-- FAVICON -->
+  <link rel="icon" type="image/png" href="logo.png" />
+  <link rel="apple-touch-icon" href="logo.png" />
+  <link rel="shortcut icon" href="logo.png" />
+
+  <!-- MOBILE APP -->
+  <meta name="mobile-web-app-capable" content="yes" />
+  <meta name="apple-mobile-web-app-capable" content="yes" />
+  <meta name="apple-mobile-web-app-title" content="Quick Shop" />
+  <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent" />
+  <meta name="application-name" content="Quick Shop" />
+
+  <!-- OPEN GRAPH -->
+  <meta property="og:type" content="website" />
+  <meta property="og:title" content="Quick Shop - Premium Modern Online Store" />
+  <meta
+    property="og:description"
+    content="Explore stylish products, featured collections, premium UI, amazing deals, and modern shopping experience with Quick Shop."
+  />
+  <meta property="og:url" content="https://quickshop-online.vercel.app/" />
+  <meta property="og:site_name" content="Quick Shop" />
+  <meta property="og:image" content="https://i.ibb.co/TDpcw9W1/banner-img.png" />
+  <meta property="og:image:alt" content="Quick Shop Premium Store Preview" />
+  <meta property="og:locale" content="en_US" />
+
+  <!-- TWITTER / X -->
+  <meta name="twitter:card" content="summary_large_image" />
+  <meta name="twitter:title" content="Quick Shop - Premium Modern Online Store" />
+  <meta
+    name="twitter:description"
+    content="Discover premium collections, stylish products, smooth UI, wishlist system, and amazing deals with Quick Shop."
+  />
+  <meta name="twitter:image" content="https://i.ibb.co/TDpcw9W1/banner-img.png" />
+
+  <!-- SECURITY -->
+  <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+  <meta http-equiv="Content-Security-Policy" content="upgrade-insecure-requests" />
+  <meta http-equiv="Referrer-Policy" content="strict-origin-when-cross-origin" />
+
+  <!-- INDEXING -->
+  <meta name="rating" content="general" />
+  <meta name="distribution" content="global" />
+  <meta name="revisit-after" content="7 days" />
+
+  <!-- STRUCTURED DATA -->
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "WebSite",
+    "name": "Quick Shop",
+    "url": "https://quickshop-online.vercel.app",
+    "description": "Quick Shop is a premium modern online showcase store with stylish products, featured collections, amazing deals, smooth UI, wishlist system, and premium shopping experience.",
+    "image": "https://i.ibb.co/TDpcw9W1/banner-img.png",
+    "author": {
+      "@type": "Person",
+      "name": "AYAN"
+    },
+    "publisher": {
+      "@type": "Organization",
+      "name": "Quick Shop",
+      "logo": {
+        "@type": "ImageObject",
+        "url": "https://i.ibb.co/TDpcw9W1/banner-img.png"
+      }
+    }
+  }
+  </script>
+
+  <!-- FONTS -->
+  <link
+    href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap"
+    rel="stylesheet"
+  />
+
+  <!-- ICONS -->
+  <link
+    href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css"
+    rel="stylesheet"
+  />
+
+  <!-- CSS -->
+  <link rel="stylesheet" href="style.css"/>
+
 </head>
 <body>
 
-<h2>Blackbox API Test</h2>
+  <div class="shop-container">
 
-<input type="text" id="msg" placeholder="Type message">
-<button onclick="send()">Send</button>
+    <!-- HEADER -->
+    <header class="shop-header">
 
-<pre id="output"></pre>
+      <div class="header-left">
+        <button
+          id="themeToggleBtn"
+          class="icon-btn back-button"
+          aria-label="Toggle Theme"
+        >
+          <i class="fas fa-moon"></i>
+        </button>
 
-<script>
-function send(){
-    const message = document.getElementById("msg").value;
+        <div class="logo">
+          <span class="logo-icon">⚡</span>
+          Quick Shop
+        </div>
+      </div>
 
-    fetch("http://127.0.0.1:5000/test", {
-        method: "POST",
-        headers: {
-            "Content-Type": "application/json"
-        },
-        body: JSON.stringify({ message: message })
-    })
-    .then(res => res.json())
-    .then(data => {
-        document.getElementById("output").innerText =
-            JSON.stringify(data, null, 2);
-    })
-    .catch(err => {
-        document.getElementById("output").innerText = err;
-    });
-}
-</script>
+      <div class="header-right">
+
+        <div class="header-decor" aria-hidden="true">
+          <i class="fas fa-star"></i>
+        </div>
+
+        <div class="wishlist-counter" id="wishlistCounter">
+          <i class="fas fa-heart"></i>
+          <span id="wishlistCount">0</span>
+        </div>
+
+        <button
+          id="menuBtn"
+          class="icon-btn menu-btn"
+          aria-label="Menu"
+          aria-expanded="false"
+          aria-controls="quickMenu"
+        >
+          <i class="fas fa-bars"></i>
+        </button>
+
+      </div>
+
+    </header>
+
+    <!-- MENU -->
+    <div id="menuOverlay" class="menu-overlay" hidden></div>
+
+    <nav id="quickMenu" class="quick-menu" aria-hidden="true">
+
+      <button id="themesBtn" class="menu-item" type="button">
+        <i class="fas fa-palette"></i>
+        Themes
+      </button>
+
+      <button id="supportBtn" class="menu-item" type="button">
+        <i class="fab fa-whatsapp"></i>
+        WhatsApp Support
+      </button>
+
+    </nav>
+
+    <!-- HERO SLIDER -->
+    <section class="hero-slider-section">
+
+      <!-- FALLBACK HERO -->
+      <div id="defaultHero" class="hero-fallback hidden">
+
+        <div class="hero-content">
+          <span class="hero-badge">
+            ⚡ Premium Collection
+          </span>
+
+          <h1 class="hero-title">
+            Discover Amazing Products
+          </h1>
+
+          <p class="hero-subtitle">
+            Explore premium collections with exclusive deals,
+            cinematic UI and modern shopping experience.
+          </p>
+
+          <div class="hero-buttons">
+            <button class="hero-btn hero-btn-primary">
+              Explore Collection
+            </button>
+
+            <button class="hero-btn hero-btn-secondary">
+              Trending Products
+            </button>
+          </div>
+        </div>
+
+      </div>
+
+      <!-- FEATURED SLIDER -->
+      <div id="featuredSlider" class="featured-slider hidden">
+
+        <!-- BACKGROUND GLOW -->
+        <div class="slider-bg-glow glow-1"></div>
+        <div class="slider-bg-glow glow-2"></div>
+
+        <!-- SLIDES -->
+        <div id="sliderTrack" class="slider-track"></div>
+
+        <!-- CONTROLS -->
+        <button
+          id="prevSlideBtn"
+          class="slider-control prev-control"
+          aria-label="Previous Slide"
+        >
+          <i class="fas fa-chevron-left"></i>
+        </button>
+
+        <button
+          id="nextSlideBtn"
+          class="slider-control next-control"
+          aria-label="Next Slide"
+        >
+          <i class="fas fa-chevron-right"></i>
+        </button>
+
+        <!-- DOTS -->
+        <div id="sliderDots" class="slider-dots"></div>
+
+      </div>
+
+    </section>
+
+    <!-- FILTERS -->
+    <div class="filters-container">
+
+      <div class="filter-tabs">
+
+        <button class="filter-tab active" data-filter="all">
+          <i class="fas fa-th"></i>
+          All
+        </button>
+
+        <button class="filter-tab" data-filter="new">
+          <i class="fas fa-sparkles"></i>
+          New
+        </button>
+
+        <button class="filter-tab" data-filter="discount">
+          <i class="fas fa-percent"></i>
+          Discount
+        </button>
+
+        <button class="filter-tab" data-filter="instock">
+          <i class="fas fa-check-circle"></i>
+          In Stock
+        </button>
+
+        <button class="filter-tab" data-filter="wishlist">
+          <i class="fas fa-heart"></i>
+          Wishlist
+        </button>
+
+      </div>
+
+      <div class="search-container">
+
+        <i class="fas fa-search search-icon"></i>
+
+        <input
+          type="text"
+          id="searchInput"
+          placeholder="Search products..."
+        />
+
+      </div>
+
+    </div>
+
+    <!-- PRODUCTS -->
+    <section class="products-section">
+
+      <div class="empty-state hidden" id="emptyState">
+
+        <div class="empty-icon">📦</div>
+
+        <h2>No products found</h2>
+
+        <p>Try adjusting your search or filters</p>
+
+        <button id="clearFilters" class="gradient-btn">
+          Clear Filters
+        </button>
+
+      </div>
+
+      <div class="products-grid" id="productsGrid"></div>
+
+    </section>
+
+  </div>
+
+  <!-- THEME PANEL -->
+  <aside
+    id="themePanel"
+    class="theme-panel"
+    aria-hidden="true"
+    hidden
+  >
+
+    <div class="theme-panel-header">
+
+      <h3>
+        <i class="fas fa-wand-magic-sparkles"></i>
+        Premium Themes
+      </h3>
+
+      <button
+        id="themePanelClose"
+        class="theme-close-btn"
+        aria-label="Close Themes"
+      >
+        <i class="fas fa-xmark"></i>
+      </button>
+
+    </div>
+
+    <div class="theme-options">
+
+      <button
+        class="theme-card"
+        data-theme="theme-purple"
+        type="button"
+      >
+        <span class="theme-preview preview-purple"></span>
+        <span class="theme-name">Purple Neon</span>
+      </button>
+
+      <button
+        class="theme-card"
+        data-theme="theme-amoled"
+        type="button"
+      >
+        <span class="theme-preview preview-amoled"></span>
+        <span class="theme-name">AMOLED Black</span>
+      </button>
+
+      <button
+        class="theme-card"
+        data-theme="theme-glass"
+        type="button"
+      >
+        <span class="theme-preview preview-glass"></span>
+        <span class="theme-name">Glass Frost</span>
+      </button>
+
+    </div>
+
+  </aside>
+
+  <!-- THEME FX -->
+  <div id="themeFx" class="theme-fx" aria-hidden="true">
+
+    <span class="fx-blob blob-1"></span>
+    <span class="fx-blob blob-2"></span>
+    <span class="fx-blob blob-3"></span>
+
+    <span class="fx-dot dot-1"></span>
+    <span class="fx-dot dot-2"></span>
+    <span class="fx-dot dot-3"></span>
+
+    <span class="fx-shimmer"></span>
+
+  </div>
+
+  <!-- TOAST -->
+  <div id="toastContainer" class="toast-container"></div>
+
+  <!-- FOOTER -->
+  <footer class="app-footer">
+    <p>
+      Developed by AYAN (@UCHIHAGHOST100_BOT) © 2026 |
+      Premium Quick Shop
+    </p>
+  </footer>
+
+  <!-- SCRIPT -->
+  <script type="module" src="script.js"></script>
 
 </body>
 </html>
