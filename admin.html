@@ -1,0 +1,215 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="robots" content="noindex,nofollow">
+  <title>Quick Shop • Private Control Room</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="admin.css" />
+</head>
+<body>
+
+<div class="bg-gradient"></div>
+<div class="grain"></div>
+
+<main id="authView" class="view auth-view">
+  <section class="glass auth-card">
+    <div class="auth-head">
+      <p class="eyebrow">Quick Shop</p>
+      <h1>Ultra Premium Hidden Admin</h1>
+      <p class="sub">Private control room access only.</p>
+    </div>
+    <form id="loginForm" class="auth-form">
+      <label>
+        Admin ID
+        <input id="adminId" required />
+      </label>
+      <label>
+        Password
+        <input id="adminPass" type="password" required />
+      </label>
+      <button class="btn btn-primary">Unlock Dashboard</button>
+    </form>
+  </section>
+</main>
+
+<main id="dashboardView" class="view hidden">
+
+  <header class="topbar glass">
+    <div>
+      <p class="eyebrow">Quick Shop / Admin</p>
+      <h2>Control Room</h2>
+    </div>
+    <button id="logoutBtn" class="btn btn-ghost">Logout</button>
+  </header>
+
+  <!-- STATS -->
+  <section id="statsGrid" class="stats-grid"></section>
+
+  <!-- FEATURED -->
+  <section class="glass featured-panel">
+    <div class="featured-top">
+      <div>
+        <p class="eyebrow">Banner Control</p>
+        <h3>Featured Banner Products</h3>
+      </div>
+      <div class="featured-live">
+        <span class="live-dot"></span>
+        LIVE
+      </div>
+    </div>
+    <div id="featuredGrid" class="featured-grid"></div>
+  </section>
+
+  <section class="panel-grid">
+
+    <!-- ADD PRODUCT -->
+    <article class="glass panel">
+      <h3>Add Product</h3>
+      <form id="productForm" class="product-form">
+
+        <div class="grid2">
+          <label>
+            Name
+            <input name="name" required>
+          </label>
+          <label>
+            Price
+            <input name="price" type="number" required>
+          </label>
+        </div>
+
+        <label>
+          Discount
+          <input name="discount" type="number" value="0">
+        </label>
+
+        <label>
+          Stock Type
+          <select name="stockType">
+            <option value="available">Available</option>
+            <option value="few">Few left</option>
+            <option value="out">Out of stock</option>
+          </select>
+        </label>
+
+        <label>
+          Description
+          <input name="description" required>
+        </label>
+
+        <label>
+          Full Description
+          <textarea name="fullDescription" required></textarea>
+        </label>
+
+        <label>
+          Highlights
+          <input name="highlights" required>
+        </label>
+
+        <label>
+          Images
+          <textarea name="images" required></textarea>
+        </label>
+
+        <label class="checkbox-row">
+          <input type="checkbox" name="isNew">
+          Mark as NEW
+        </label>
+
+        <!-- DESIGNS SECTION -->
+        <div class="designs-section">
+          <div class="designs-header">
+            <span class="designs-icon">🎨</span>
+            <div>
+              <p class="designs-title">Product Designs</p>
+              <p class="designs-sub">Optional — Add multiple design variants for this product</p>
+            </div>
+          </div>
+
+          <div class="designs-fields" id="designFieldsAdd">
+            <label>
+              Design 1 Image URL
+              <input name="design1" placeholder="https://..." />
+            </label>
+            <label>
+              Design 2 Image URL
+              <input name="design2" placeholder="https://..." />
+            </label>
+            <label>
+              Design 3 Image URL
+              <input name="design3" placeholder="https://..." />
+            </label>
+            <label>
+              Design 4 Image URL
+              <input name="design4" placeholder="https://..." />
+            </label>
+            <label>
+              Design 5 Image URL
+              <input name="design5" placeholder="https://..." />
+            </label>
+          </div>
+        </div>
+
+        <button id="saveBtn" class="btn btn-primary">Save Product</button>
+
+      </form>
+    </article>
+
+    <!-- PRODUCTS -->
+    <article class="glass panel">
+      <div class="toolbar">
+        <input id="searchInput" placeholder="Search...">
+        <select id="filterSelect">
+          <option value="all">All</option>
+          <option value="available">Available</option>
+          <option value="few">Few</option>
+          <option value="out">Out</option>
+        </select>
+      </div>
+      <div id="productGrid" class="product-grid"></div>
+    </article>
+
+  </section>
+
+</main>
+
+<!-- EDIT MODAL -->
+<div id="editModal" class="modal hidden">
+  <div class="modal-card glass">
+    <div class="edit-head">
+      <h3>Edit Product</h3>
+      <button id="closeModalBtn" class="btn btn-ghost">Close</button>
+    </div>
+    <form id="editForm" class="product-form"></form>
+  </div>
+</div>
+
+<!-- SHARE PREVIEW MODAL -->
+<div id="shareModal" class="modal hidden">
+  <div class="modal-card glass share-card">
+    <div class="edit-head">
+      <h3>🖼 Preview Share Message</h3>
+      <button id="closeShareModalBtn" class="btn btn-ghost">Close</button>
+    </div>
+    <div class="share-preview-wrap">
+      <img id="sharePreviewImage" class="share-preview-image" src="" alt="">
+      <pre id="sharePreviewText" class="share-preview-text"></pre>
+    </div>
+    <div class="share-actions">
+      <button id="openWhatsappBtn" class="btn btn-primary">📲 Open WhatsApp</button>
+      <button id="copyProductBtn" class="btn btn-ghost">📋 Copy Product Link</button>
+      <button id="shareAgainBtn" class="btn btn-featured">📲 Share Again</button>
+    </div>
+  </div>
+</div>
+
+<div id="toastStack" class="toast-stack"></div>
+
+<script type="module" src="admin.js"></script>
+</body>
+</html>
