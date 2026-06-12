@@ -1,0 +1,129 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Quick Shop | Premium Product</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap"
+      rel="stylesheet"
+    />
+    <link
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css"
+      rel="stylesheet"
+    />
+    <link rel="stylesheet" href="product.css" />
+  </head>
+  <body>
+    <div class="ambient-bg" aria-hidden="true"></div>
+
+    <header class="topbar glass panel-anim">
+      <button id="backBtn" class="icon-btn" aria-label="Go Back">←</button>
+      <h1 class="logo">Quick <span>Shop</span></h1>
+      <button id="shareBtn" class="icon-btn" aria-label="Share Product">⤴</button>
+    </header>
+
+    <main class="container panel-anim" id="productShell">
+      <!-- SKELETON -->
+      <section id="skeleton" class="product-grid skeleton-grid" aria-hidden="true">
+        <div class="skeleton-block image"></div>
+        <div class="skeleton-right">
+          <div class="skeleton-line lg"></div>
+          <div class="skeleton-line md"></div>
+          <div class="skeleton-line"></div>
+          <div class="skeleton-line"></div>
+          <div class="skeleton-btn"></div>
+          <div class="skeleton-btn"></div>
+        </div>
+      </section>
+
+      <!-- PRODUCT -->
+      <section id="productSection" class="product-grid hidden">
+
+        <div class="media-card glass tilt-card">
+          <div class="main-image-wrap">
+            <button
+              id="wishlistBtn"
+              class="wishlist-btn"
+              aria-label="Toggle Wishlist"
+              type="button"
+            >
+              <i class="fa-regular fa-heart"></i>
+            </button>
+            <img id="mainImage" alt="Product Image" loading="lazy" />
+          </div>
+
+          <div id="thumbnailRail" class="thumb-rail"></div>
+
+          <!-- DESIGNS SECTION (shown only when designs exist) -->
+          <div id="designsSection" class="designs-wrap hidden">
+            <div class="designs-label-row">
+              <span class="designs-label-title" id="designsLabel">🎨 Available Designs</span>
+              <span class="designs-count-badge" id="designsCountBadge"></span>
+            </div>
+            <p class="designs-selected-label">Selected Design</p>
+            <div id="designsRail" class="designs-rail"></div>
+          </div>
+        </div>
+
+        <article class="details-card glass tilt-card">
+          <h2 id="name" class="product-name">Loading…</h2>
+
+          <div class="price-wrap">
+            <p id="finalPrice" class="final-price">₹0</p>
+            <div class="meta-price">
+              <span id="originalPrice" class="original-price">₹0</span>
+              <span id="discountBadge" class="discount-badge">-0%</span>
+            </div>
+          </div>
+
+          <div class="meta-row">
+            <span id="stockBadge" class="stock-badge">Checking stock...</span>
+          </div>
+
+          <p id="shortDescription" class="short-description"></p>
+
+          <div class="cta-group">
+            <button id="buyBtn"       class="cta primary ripple">Buy / Contact Now</button>
+               <button id="negotiateBtn" class="cta secondary ripple">Negotiate Price</button>
+            <button id="directBtn"    class="cta ghost ripple">WhatsApp Direct</button>
+          </div>
+
+          <section class="expandable">
+            <button id="toggleDescription" class="toggle-btn">Read More</button>
+            <p id="fullDescription" class="full-description collapsed"></p>
+          </section>
+
+          <section>
+            <h3>Highlights</h3>
+            <ul id="highlightsList" class="highlights"></ul>
+          </section>
+
+          <section class="trust-badges">
+            <p>✔ Trusted Seller</p>
+            <p>✔ Offline Pickup Available</p>
+            <p>✔ Best Price Guarantee</p>
+          </section>
+        </article>
+      </section>
+
+      <!-- ERROR -->
+      <section id="errorState" class="hidden error-card glass">
+        <h2>Product not found</h2>
+        <p>Please check the product link and try again.</p>
+      </section>
+    </main>
+
+    <!-- IMAGE MODAL -->
+    <div id="imageModal" class="image-modal hidden" role="dialog" aria-modal="true">
+      <button id="closeModal" class="icon-btn close-modal" aria-label="Close Preview">✕</button>
+      <img id="modalImage" alt="Full Screen Product" />
+    </div>
+
+    <footer class="footer">Developed by AYAN © 2026 | Premium Quick Shop</footer>
+
+    <script type="module" src="product.js"></script>
+  </body>
+</html>
